@@ -1,0 +1,2 @@
+class Tvquote < ApplicationRecord
+end
