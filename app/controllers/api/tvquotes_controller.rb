@@ -1,42 +1,42 @@
 class Api::TvquotesController < ApplicationController
-  before_action :set_tvquote, only: [:show, :update, :destroy]
-
-  def index
-      render json: Tvquote.all
-  end 
-
-  def show
-     render json: @tvquote
-  end
+      before_action :set_fact, only: [:show, :update, :destroy]
   
-  def create
-     @tvquote = Tvquote.new(tvquote_params)
-     if(@tvquote.save)
-      render json: @tvquote
-     else
-      render json: {errors: @tvquote.errors.full_messages}, status: :unprocessable_entity
-     end
-  end
-
-  def update
-      if(@tvquote.update(tvquote_params))
-       render json: @tvquote
-      else
-       render json: {errors: @tvquote.errors.full_messages}, status: :unprocessable_entity
+      def index
+          render json: Fact.all
       end
-   end
-
-   def destroy
-      render json: @tvquote.destroy
-   end
-
-  private
-
-  def tvquote_params
-    params.require(:tvquote).permit(:text, :stars, :username, :souce)
+  
+      def show
+         render json: @fact
+      end
+      
+      def create
+         @fact = Fact.new(fact_params)
+         if(@fact.save)
+          render json: @fact
+         else
+          render json: {errors: @fact.errors.full_messages}, status: :unprocessable_entity
+         end
+      end
+  
+      def update
+          if(@fact.update(fact_params))
+           render json: @fact
+          else
+           render json: {errors: @fact.errors.full_messages}, status: :unprocessable_entity
+          end
+       end
+  
+       def destroy
+          render json: @fact.destroy
+       end
+  
+      private
+  
+      def fact_params
+        params.require(:fact).permit(:text, :stars, :username, :souce)
+      end
+  
+      def set_fact
+        @fact = Fact.find(params[:id])
+      end
   end
-
-  def set_tvquote
-    @tvquote = Tvquote.find(params[:id])
-  end
-end

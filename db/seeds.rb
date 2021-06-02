@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Tvquote.create(text: Faker::TvShows::Friends.quote, stars:1, source:'google', username:"Ross")
-Tvquote.create(text:Faker::TvShows::Friends.quote, stars:1, source:'google', username:"Phoebe")
+Tvquote.create(text: Faker::TvShows::Friends.quote, stars:1, source:'google', username:"Phoebe")
 Tvquote.create(text: Faker::TvShows::Friends.quote, stars:0, source:'internet', username:"Chandler")
 Tvquote.create(text: Faker::TvShows::Friends.quote, stars:4.2, source:'internet', username:"Joey")
 Tvquote.create(text: Faker::TvShows::Friends.quote, stars:3.3, source:'internet', username:"Monica")
